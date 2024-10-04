@@ -1,0 +1,46 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools>=70.1",
+    "cx_Freeze>=7.1.1",
+]
+
+
+[project]
+name = 'dummymod'
+version = '1.0.0'
+requires-python = ">=3.11"
+authors = [
+    {name = "Claudio Luck", email = "c.luck@datact.ch"}
+]
+maintainers = [
+    {name = "Claudio Luck", email = "c.luck@datact.ch"}
+]
+description = "Dummy to test cx_Freeze with entry_points.txt"
+dependencies = [
+    "setuptools>=70.1",
+    "cx_Freeze>=7.1.1",
+]
+
+[tool.setuptools]
+packages = ["dummymod"]
+include-package-data = true
+
+[project.entry-points."dummymod.plugins"]
+internal = "dummymod.plugin:plugin_main"
+
+
+[tool.cxfreeze]
+
+[tool.cxfreeze.build_exe]
+build_exe = "build-exe"
+excludes = ["tkinter", "unittest"]
+#includes = ["dummymod"]
+packages = ["dummymod"]
+# zip_include_packages = ["dummymod"]
+
+[[tool.cxfreeze.executables]]
+script = "dummy.py"
+base = "console"
+target_name = "dummy.exe"
+copyright="Copyright (C) 2024 DatACT GmbH"
