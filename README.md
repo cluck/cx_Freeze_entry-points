@@ -62,5 +62,6 @@ TOTAL of dummymod.plugins endpoints: 0
 
 Tested on Linux and Windows to yield the same result.
 
-Looking at build-exe/lib/library.zip reveals that none of the *.dist-info directories contains required entry_points.txt.
-Finding these files in the venv/ directory and inserting them manually into the library.zip makes the entry-points to be found and working.
+Looking at build-exe/lib/library.zip reveals that not all of the *.dist-info directories contain the required entry_points.txt. Finding these files in the venv/ directory and inserting them manually into the library.zip makes the entry-points to be found and working.
+
+This seems to be limited to packages for which both .egg-info exists in the development directory (editable) and *.dist-info in the venv directory.
