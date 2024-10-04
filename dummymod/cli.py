@@ -17,5 +17,5 @@ def main():
             print(f"  - {p}")
         totals[g] = nr
     for g in totals:
-        print(f"TOTAL of {g} endpoints: " + str(totals[g]))
+        print(f"TOTAL of {g} entry-points: " + str(totals[g]))
    

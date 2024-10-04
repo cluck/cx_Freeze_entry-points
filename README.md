@@ -39,8 +39,8 @@ Output:
   - EntryPoint(name='internal', value='dummymod.plugin:plugin_main', group='dummymod.plugins')
 # Found group: egg_info.writers
 # Found group: setuptools.finalize_distribution_options
-TOTAL of console_scripts endpoints: 5
-TOTAL of dummymod.plugins endpoints: 1
+TOTAL of console_scripts entry-points: 5
+TOTAL of dummymod.plugins entry-points: 1
 ```
 
 Running compiled script:
@@ -56,8 +56,8 @@ Output:
   - EntryPoint(name='pip', value='pip._internal.cli.main:main', group='console_scripts')
   - EntryPoint(name='pip3', value='pip._internal.cli.main:main', group='console_scripts')
   - EntryPoint(name='pip3.10', value='pip._internal.cli.main:main', group='console_scripts')
-TOTAL of console_scripts endpoints: 3
-TOTAL of dummymod.plugins endpoints: 0
+TOTAL of console_scripts entry-points: 3
+TOTAL of dummymod.plugins entry-points: 0
 ```
 
 Tested on Linux and Windows to yield the same result.
