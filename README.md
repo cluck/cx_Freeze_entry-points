@@ -1,20 +1,19 @@
 # Demo for cx_Freeze entry-points
 
 
-# Windows
-
 ```
 git clone https://github.com/cluck/cx_Freeze_entry-points
 cd cx_Freeze_entry-points
+
+# Windows:
 py -m venv venv
-
-# Windows
 venv\Scripts\pip.exe install --editable .
-venv\Scripts\czfreeze build_exe --verbose
+venv\Scripts\cxfreeze build_exe --verbose
 
-# Linux
+# Unix:
+python3 -m venv venv
 venv/bin/pip install --editable .
-venv/bin/czfreeze build_exe --verbose
+venv/bin/cxfreeze build_exe --verbose
 ```
 
 Then compare the output:
@@ -22,7 +21,12 @@ Then compare the output:
 Running native script:
 
 ```
+$ venv/bin/python3 dummy.py
 C:\> .\venv\Scripts\python.exe .\dummy.py
+```
+
+Output:
+```
 # Group: console_scripts
 # Group: distutils.commands
 # Group: distutils.setup_keywords
@@ -35,12 +39,17 @@ Endpoints: 1
 
 Running compiled script:
 ```
+$ build-exe/dummy.exe
 C:\> build-exe\dummy.exe
+```
+
+Output:
+
+```
 Endpoints: 0
 ```
 
-Note: tested on Linux with same results.
+Tested on Linux and Windows to yield the same result.
 
-Looking at build-exe\lib\library.zip reveals that none of the *.dist-info directories contain a entry_points.txt.
-Adding this file manually into library.zip makes the entry-points to be found.
-
+Looking at build-exe/lib/library.zip reveals that none of the *.dist-info directories contains required entry_points.txt.
+Finding these files in the venv/ directory and inserting them manually into the library.zip makes the entry-points to be found and working.
