@@ -36,7 +36,7 @@ internal = "dummymod.plugin:plugin_main"
 build_exe = "build-exe"
 excludes = ["tkinter", "unittest"]
 #includes = ["dummymod"]
-packages = ["dummymod"]
+packages = ["dummymod", "pip"]
 # zip_include_packages = ["dummymod"]
 
 [[tool.cxfreeze.executables]]

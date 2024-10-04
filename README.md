@@ -28,13 +28,20 @@ C:\> .\venv\Scripts\python.exe .\dummy.py
 Output:
 ```
 # Group: console_scripts
+  - EntryPoint(name='cxfreeze', value='cx_Freeze.cli:main', group='console_scripts')
+  - EntryPoint(name='cxfreeze-quickstart', value='cx_Freeze.setupwriter:main', group='console_scripts')
+  - EntryPoint(name='hatchling', value='hatchling.cli:hatchling', group='console_scripts')
+  - EntryPoint(name='pip', value='pip._internal.cli.main:main', group='console_scripts')
+  - EntryPoint(name='pip3', value='pip._internal.cli.main:main', group='console_scripts')
+  - EntryPoint(name='pip3.10', value='pip._internal.cli.main:main', group='console_scripts')
+# TOTAL of console_scripts endpoints: 6
 # Group: distutils.commands
 # Group: distutils.setup_keywords
 # Group: dummymod.plugins
+  - EntryPoint(name='internal', value='dummymod.plugin:plugin_main', group='dummymod.plugins')
+# TOTAL of dummymod.plugins endpoints: 1
 # Group: egg_info.writers
 # Group: setuptools.finalize_distribution_options
-- EntryPoint(name='internal', value='dummymod.plugin:plugin_main', group='dummymod.plugins')
-Endpoints: 1
 ```
 
 Running compiled script:
@@ -46,7 +53,11 @@ C:\> build-exe\dummy.exe
 Output:
 
 ```
-Endpoints: 0
+# Group: console_scripts
+  - EntryPoint(name='pip', value='pip._internal.cli.main:main', group='console_scripts')
+  - EntryPoint(name='pip3', value='pip._internal.cli.main:main', group='console_scripts')
+  - EntryPoint(name='pip3.10', value='pip._internal.cli.main:main', group='console_scripts')
+# TOTAL of console_scripts endpoints: 3
 ```
 
 Tested on Linux and Windows to yield the same result.
